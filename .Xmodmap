@@ -1,0 +1,8 @@
+
+! to reload type `$ xmodmap ~/.Xmodmap`
+!
+! unmap Caps_Lock and map Control_L to the capslock key
+clear Lock
+keycode 66 = Control_L
+
+add Control = Control_L

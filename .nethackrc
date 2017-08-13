@@ -1,0 +1,41 @@
+# Example nethackrc files:
+# https://github.com/gabebw/dotfiles/blob/master/nethackrc
+
+# QUICKREF
+# ^P - show messages
+# ^O - show dungeon levels?
+# ^X - show attributes/self
+
+# REFERENCES
+# "You feel..." - https://nethackwiki.com/wiki/You_feel
+
+# Class
+OPTIONS=align:c
+OPTIONS=race:h
+OPTIONS=role:r
+#OPTIONS=pettype:dog
+
+
+# Options In Testing
+#OPTIONS=pickup_types:all
+# cash, amulets, scrolls, spellbooks, potions, rings, wands
+#* # NOT gems/rocks
+#OPTIONS=pickup_types:$"?+!=/
+
+
+# Naming
+OPTIONS=gender:m
+OPTIONS=name:Trent
+OPTIONS=catname:Moon
+OPTIONS=dogname:Fido
+OPTIONS=horsename:Nay
+
+# Static
+OPTIONS=number_pad:0
+OPTIONS=boulder:0
+OPTIONS=color
+OPTIONS=!autopickup
+OPTIONS=rest_on_space
+OPTIONS=autodig
+OPTIONS=msg_window:reversed
+
