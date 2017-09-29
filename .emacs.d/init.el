@@ -21,13 +21,20 @@
 (eval-when-compile
   (require 'use-package))
 
-(require 'evil)
-;; (require 'diminish) ;; if you use diminish
-;; (require 'bind-key) ;; if you use any :bind variant
+;; evil mode
+(use-package evil 
+  :ensure t)
+;; enable evil-mode
+(evil-mode 1)
 
 ;; helm
 (use-package helm
   :ensure t)
+;; enable helm-mode
+(helm-mode 1)
+
+;; (require 'diminish) ;; if you use diminish
+;; (require 'bind-key) ;; if you use any :bind variant
 
 (load-theme 'tango-dark t)
 
@@ -36,11 +43,6 @@
 ;; turn line numbers on
 (global-linum-mode)
 
-;; enable helm-mode
-(helm-mode 1)
-
-;; enable evil-mode
-(evil-mode 1)
 
 ;; backups in system tmp directory
 ;; from emacs wiki: https://www.emacswiki.org/emacs/BackupDirectory#toc2
