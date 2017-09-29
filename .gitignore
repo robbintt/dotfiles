@@ -4,6 +4,7 @@
 
 # emacs
 \#*#
+.emacs.d/elpa
 
 # python
 *.pyc
