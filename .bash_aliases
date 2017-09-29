@@ -78,24 +78,26 @@ alias breakout='cd $(pwd -P)'
 # estimated editor use: 30-50% of commands. save myself probably 100-200 keystrokes a day. TAR 120115
 # we use f because it is on the homerow, `e` and `v` for mnemonic
 f () { 
-    command emacs -nw "$@" 
+    command emacsclient -nw "$@" 
 }
 v () { 
     command vim "$@" 
 }
 e () { 
-    command emacs -nw "$@" 
+    command emacsclient -nw "$@" 
 }
-vim () { 
-    echo ""
-    echo "use shortcuts: v, e, f" 
-    echo ""
-}
-emacs () { 
-    echo ""
-    echo "use shortcuts: v, e, f" 
-    echo ""
-}
+# this has been disabled to allow bash edit-and-execute-command vim
+# vim () { 
+#     echo ""
+#     echo "use shortcuts: v, e, f" 
+#     echo ""
+# }
+# this has been disabled so that i can use it if emacsclient fails
+# emacs () { 
+#     echo ""
+#     echo "use shortcuts: v, e, f" 
+#     echo ""
+# }
 
 # tmux - if no arguments given, then: if a session exists attach it, else make a session.
 # IMPORTANT, this must be made in conjunction with the line:

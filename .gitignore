@@ -5,6 +5,7 @@
 # emacs
 \#*#
 .emacs.d/elpa
+.emacs.d/auto-save-list
 
 # python
 *.pyc
