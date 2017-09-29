@@ -33,6 +33,12 @@
 ;; enable helm-mode
 (helm-mode 1)
 
+;; undo-tree 
+(use-package undo-tree 
+  :ensure t)
+;; enable undo-tree-mode
+(global-undo-tree-mode 1)
+
 ;; (require 'diminish) ;; if you use diminish
 ;; (require 'bind-key) ;; if you use any :bind variant
 
