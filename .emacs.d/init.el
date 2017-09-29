@@ -38,6 +38,8 @@
   :ensure t)
 ;; enable undo-tree-mode
 (global-undo-tree-mode 1)
+;; persistent undo tree between exits
+(setq undo-tree-auto-save-history t)
 
 ;; (require 'diminish) ;; if you use diminish
 ;; (require 'bind-key) ;; if you use any :bind variant
