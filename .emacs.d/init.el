@@ -56,6 +56,9 @@
 ;; turn line numbers on
 (global-linum-mode)
 
+;; avoid tabs
+(setq-default indent-tabs-mode nil)
+
 
 ;; backups in system tmp directory
 ;; from emacs wiki: https://www.emacswiki.org/emacs/BackupDirectory#toc2
