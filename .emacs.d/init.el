@@ -39,7 +39,12 @@
 ;; enable undo-tree-mode
 (global-undo-tree-mode 1)
 ;; persistent undo tree between exits
-(setq undo-tree-auto-save-history t)
+;; store persistent undo tree in system tmp (macos is $TMPDIR)
+(setq undo-tree-auto-save-history t
+    undo-tree-history-directory-alist
+    `(("." . ,(concat temporary-file-directory "undo"))))
+(unless (file-exists-p (concat temporary-file-directory "undo"))
+    (make-directory (concat temporary-file-directory "undo")))
 
 ;; (require 'diminish) ;; if you use diminish
 ;; (require 'bind-key) ;; if you use any :bind variant
