@@ -59,6 +59,8 @@
 ;; avoid tabs
 (setq-default indent-tabs-mode nil)
 
+; set the top and bottom pointer line margins to 5
+(setq-default scroll-margin 5)
 
 ;; backups in system tmp directory
 ;; from emacs wiki: https://www.emacswiki.org/emacs/BackupDirectory#toc2
