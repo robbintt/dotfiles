@@ -82,14 +82,17 @@
  ;; If there is more than one, they won't work right.
  )
 (defun newline-and-comment ()
-  ;; RET
   (interactive)
+  ;; hold onto the current line as last-line for dependent cases
   (setq last-line (thing-at-point 'line t))
-  (newline)
-  (message last-line)
-  ;;(message (thing-at-point 'line t))
-  (cond ((not (string-match "[:space:]*;;.*" last-line)) ())
-        ((string-match "[:space:]*;;.*" last-line (princ ";; " (current-buffer))))))
+  (message last-line) ;; for debug
+  (newline) ;; RET
+
+  ;; string-match & regex help: https://www.gnu.org/software/emacs/manual/html_node/elisp/Regexp-Search.html
+  ;; print, prin1, princ help: http://ergoemacs.org/emacs/elisp_printing.html
+  ;; insert help: https://www.gnu.org/software/emacs/manual/html_node/elisp/Insertion.html
+  ;; if and conditional syntax: https://www.gnu.org/software/emacs/manual/html_node/elisp/Conditionals.html
+  (if (string-match "^\\([[:space:]]*;+\\).*" last-line) (insert (match-string 1 last-line) " ") ()))
 
 (add-hook 'scheme-mode-hook
       (lambda ()
