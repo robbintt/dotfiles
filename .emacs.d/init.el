@@ -81,3 +81,17 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+(defun newline-and-comment ()
+  ;; RET
+  (interactive)
+  (setq last-line (thing-at-point 'line t))
+  (newline)
+  (message last-line)
+  ;;(message (thing-at-point 'line t))
+  (cond ((not (string-match "[:space:]*;;.*" last-line)) ())
+        ((string-match "[:space:]*;;.*" last-line (princ ";; " (current-buffer))))))
+
+(add-hook 'scheme-mode-hook
+      (lambda ()
+        (local-unset-key (kbd "RET"))
+        (local-set-key (kbd "RET") 'newline-and-comment)))
