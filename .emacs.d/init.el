@@ -85,7 +85,7 @@
   (interactive)
   ;; hold onto the current line as last-line for dependent cases
   (setq last-line (thing-at-point 'line t))
-  (message last-line) ;; for debug
+  ;; (message last-line) ;; for debug
   (newline) ;; RET
 
   ;; string-match & regex help: https://www.gnu.org/software/emacs/manual/html_node/elisp/Regexp-Search.html
