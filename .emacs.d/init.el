@@ -92,7 +92,8 @@
   ;; print, prin1, princ help: http://ergoemacs.org/emacs/elisp_printing.html
   ;; insert help: https://www.gnu.org/software/emacs/manual/html_node/elisp/Insertion.html
   ;; if and conditional syntax: https://www.gnu.org/software/emacs/manual/html_node/elisp/Conditionals.html
-  (if (string-match "^\\([[:space:]]*;+\\).*" last-line) (insert (match-string 1 last-line) " ") ()))
+  ;; indent-relative: https://www.gnu.org/software/emacs/manual/html_node/emacs/Indentation-Commands.html
+  (if (string-match "^\\([[:space:]]*;+\\).*" last-line) (insert (match-string 1 last-line) " ") (indent-relative)))
 
 (add-hook 'scheme-mode-hook
       (lambda ()
