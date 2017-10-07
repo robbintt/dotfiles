@@ -94,7 +94,7 @@
   ;; if and conditional syntax: https://www.gnu.org/software/emacs/manual/html_node/elisp/Conditionals.html
   ;; indent-relative: https://www.gnu.org/software/emacs/manual/html_node/emacs/Indentation-Commands.html
   ;; motion by text lines: https://www.gnu.org/software/emacs/manual/html_node/elisp/Text-Lines.html
-  (if (string-match "^\\([[:space:]]*;+\\).*" last-line) (insert (match-string 1 last-line) " ") (indent-relative)))
+  (if (string-match "^\\([[:space:]]*;+\\).*" last-line) (insert (match-string 1 last-line) " ") (indent-for-tab-command)))
 
 (add-hook 'scheme-mode-hook
       (lambda ()
