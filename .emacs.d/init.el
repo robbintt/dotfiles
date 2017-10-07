@@ -93,6 +93,7 @@
   ;; insert help: https://www.gnu.org/software/emacs/manual/html_node/elisp/Insertion.html
   ;; if and conditional syntax: https://www.gnu.org/software/emacs/manual/html_node/elisp/Conditionals.html
   ;; indent-relative: https://www.gnu.org/software/emacs/manual/html_node/emacs/Indentation-Commands.html
+  ;; motion by text lines: https://www.gnu.org/software/emacs/manual/html_node/elisp/Text-Lines.html
   (if (string-match "^\\([[:space:]]*;+\\).*" last-line) (insert (match-string 1 last-line) " ") (indent-relative)))
 
 (add-hook 'scheme-mode-hook
