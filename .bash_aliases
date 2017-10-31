@@ -26,6 +26,12 @@ elif [[ $platform == 'macos' ]]; then
     # macos version with homebrew gnutools and findtools g- prefix
     alias diskspace="du -sch .[!.]* * |gsort -h"
     alias diskspace2="du -Sh | gsort -n -r | less"
+
+    # lint comments from a brainfuck script, pass the script as your argument
+    function bf () {
+        cat "$@" | sed 's/^\(.*\)#.*$/\1/' | brainfuck
+    }
+
 fi
 
 
