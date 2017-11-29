@@ -1,17 +1,18 @@
 [user]
-	name = Trent Robbins
-	email = robbintt@gmail.com
+  name = Trent Robbins
+  email = robbintt@gmail.com
 [core]
-	editor = vim
+  editor = vim
 [merge]
-	tool = vimdiff
+  tool = vimdiff
 [alias]
-	stauts = status
-	st = status
-	s = status
-    c = commit
-    co = commit
-    ll = pull
-    sh = push
+  stauts = status
+  st = status
+  s = status
+  c = commit
+  co = commit
+  ll = pull
+  sh = push
+  psuh = push
 [push]
-	default = simple
+  default = simple
