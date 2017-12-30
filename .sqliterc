@@ -1,3 +1,4 @@
 
 .headers on
 .mode column
+.width auto ; turn this off if not working
