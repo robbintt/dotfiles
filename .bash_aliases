@@ -41,7 +41,7 @@ fi
 # help docs: `curl http://wttr.in/:help` 
 function weather () {
     if [[ -z $1 ]] ; then
-        curl http://wttr.in/94122?u
+        curl http://wttr.in/94104?u
     else
         curl http://wttr.in/"$@"?u
     fi
