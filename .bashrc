@@ -3,11 +3,6 @@
 
 export PS1="$ "
 
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ]; then
-    PATH="$HOME/bin:$PATH"
-fi
-
 # turn off pip unless you are in a virtualenv
 # impacts ansible pip role if you aren't using sudo
 export PIP_REQUIRE_VIRTUALENV=true
@@ -38,7 +33,7 @@ fi
 # macos specific code
 if [[ $platform == 'macos' ]]; then
 
-    export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:PATH
+    export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH
 
     # add homebrew telnet for now
     export PATH="/usr/local/opt/telnet/bin:$PATH"
@@ -57,6 +52,17 @@ elif [[ $platform == 'linux' ]]; then
 fi
 
 ### End: Platform Specific ###
+
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/bin" ]; then
+    export PATH="$HOME/bin:$PATH"
+fi
+
+# set the PATH to include cargo for rust if it exists
+if [ -d "$HOME/.cargo/bin" ]; then
+    export PATH="$HOME/.cargo/bin:$PATH"
+fi
 
 
 ### Begin: NEEDS REVIEW ###
