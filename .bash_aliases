@@ -58,6 +58,7 @@ alias s='echo `whoami;`"@"`hostname;`":"`pwd`'
 
 # convert decimal to hex
 alias dec2hex='python ~/.dotfiles/functions/dec2hex.py \$0'
+alias mvcr2='python ~/.dotfiles/functions/mvcr2.py \$0'
 
 #Tree aliases - from Greg Arenius 20170603
 alias t="tree -L 1 -C"
