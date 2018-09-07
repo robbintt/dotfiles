@@ -3,10 +3,11 @@
 Steps:
 
     1. Sling your CANON100 folder into its new home 
-    2. Rename it with a topic and date and put this script directly in that folder
+    2. Rename it with a topic and date and enter the folder in a terminal
     3. Make a directory called `CR2s` and `mv *.CR2 CR2s/`
     4. Delete any jpgs you don't want.
-    5. Run this program to move the CR2s you do want from `CR2s` back into this folder
+    5. Run this program, `mvcr2`, to move the CR2s you do want from `CR2s` back into this folder
+        - in this setup, mvcr2 is a bash alias (not on the path)
     6. Delete the CR2s folder manually (it contains leftovers)
     7. ... at this point i may want to actually split jpgs into a subdir??
     8. Zip the `topic and date` folder before making destructive changes with an editor
