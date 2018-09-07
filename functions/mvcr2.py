@@ -4,22 +4,29 @@ Steps:
 
     1. Sling your CANON100 folder into its new home 
     2. Rename it with a topic and date and enter the folder in a terminal
-    3. Make a directory called `CR2s` and `mv *.CR2 CR2s/`
+    3. Make a directory called `jpg` and `mv *.JPG jpg/`
+        - Also make a folder called CR2 for this app...
+        - FUTURE: auto
     4. Delete any jpgs you don't want.
-    5. Run this program, `mvcr2`, to move the CR2s you do want from `CR2s` back into this folder
+    5. Run this program, `mvcr2`, to move the CR2s you do want into the `CR2` folder
         - in this setup, mvcr2 is a bash alias (not on the path)
-    6. Delete the CR2s folder manually (it contains leftovers)
-    7. ... at this point i may want to actually split jpgs into a subdir??
+    6. Delete the CR2 files still in the base folder manually (it contains leftovers)
     8. Zip the `topic and date` folder before making destructive changes with an editor
+    9. Typically using darktable which is non-destructive, but need to zip as archive
+    10. No backup system yet afterall
 '''
-
-CR2s_folder_name = 'CR2s'
-
 import os
 
-thisdir = os.listdir('.')
+cr2_folder_name = 'CR2'
+JPG_folder_name = 'jpg'
 
-jpgfiles = [file[:-4]+'.CR2' for file in thisdir if file[-3:] == 'JPG']
+if not os.path.exists(cr2_folder_name):
+    os.makedirs(cr2_folder_name)
 
-for file in jpgfiles:
-    os.rename(os.path.join(CR2s_folder_name, file), os.path.join('.', file))
+jpgdir = os.listdir(JPG_folder_name)
+
+# make list of cr2 files to keep based on the jpg files you kept
+cr2files = [file[:-4]+'.CR2' for file in jpgdir if file[-3:] == 'JPG']
+
+for file in cr2files:
+    os.rename(os.path.join('.', file), os.path.join(cr2_folder_name, file))
