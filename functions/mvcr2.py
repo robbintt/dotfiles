@@ -29,4 +29,7 @@ jpgdir = os.listdir(JPG_folder_name)
 cr2files = [file[:-4]+'.CR2' for file in jpgdir if file[-3:] == 'JPG']
 
 for file in cr2files:
-    os.rename(os.path.join('.', file), os.path.join(cr2_folder_name, file))
+    try:
+        os.rename(os.path.join('.', file), os.path.join(cr2_folder_name, file))
+    except OSError:
+        pass # no such jpg
