@@ -1,7 +1,9 @@
 
 ### Begin: Global Defaults ###
 
-export PS1="$ "
+export PS1="🔥 "  # aka <U+1F525>
+#export PS1="$ "
+
 
 # turn off pip unless you are in a virtualenv
 # impacts ansible pip role if you aren't using sudo
