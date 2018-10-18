@@ -38,7 +38,7 @@ if [[ $platform == 'macos' ]]; then
     export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH
 
     # add homebrew telnet for now
-    export PATH="/usr/local/opt/telnet/bin:$PATH"
+    #export PATH="/usr/local/opt/telnet/bin:$PATH"
 
     # macos homebrew bash-completions2
     if [ -f $(brew --prefix)/share/bash-completion/bash_completion ]; then
