@@ -7,4 +7,8 @@ Control-l: clear-screen
 set keymap vi-insert
 # these are for vi-insert mode
 Control-l: clear-screen 
+
+# iterm2 bug test - https://gitlab.com/gnachman/iterm2/issues/6951
+set show-mode-in-prompt on
+
 $endif
