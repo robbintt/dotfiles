@@ -14,5 +14,10 @@
   ll = pull
   sh = push
   psuh = push
+  # from: http://blog.kfish.org/2010/04/git-lola.html
+  # show struture of git tree
+  lol = log --graph --decorate --pretty=oneline --abbrev-commit
+  # lol alias for all branches
+  lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
 [push]
   default = simple
