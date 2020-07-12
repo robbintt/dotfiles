@@ -7,6 +7,7 @@
 "
 " You MUST add a $HOME/.vim/ directory or you will not get undos.
 "
+" 256 ctermbg vim colors: https://jonasjacek.github.io/colors/
 " Author - Trent Robbins
 
 " set backspace for macos delete key (otherwise it doesn't work)
@@ -21,11 +22,15 @@
 
 " EXPERIMENTAL SECTION
 " *** *** ***
-  
 
-" if over 80 characters, background is dark red.
-":highlight OverLength ctermbg=52
-"match OverLength /\%>80v.\+/
+" highlight trailing whitespace Turqoise2=45
+:highlight ExtraWhitespace ctermbg=45
+2match ExtraWhitespace /\s\+$/
+":call matchadd('ExtraWhitespace', '/\s\+$/')
+
+" if over 80 characters, highlight darkred==52.
+:highlight OverLength ctermbg=52
+match OverLength /\%>120v.\+/
 
 " showmatch will show matching highlights
 :set showmatch
@@ -89,41 +94,48 @@ augroup END
 "maintain tabbing increments when backspacing tabs (speed things up)
 :set smarttab
 
-" set spaces used for indentenation
-:set shiftwidth=2
-:set tabstop=2
-" does a tabstop of 4 during edit commands
-:set softtabstop=2
-
-:autocmd FileType py setlocal shiftwidth=4 tabstop=4 softtabstop=4
-
 " indent to previous line automatically
 :filetype plugin indent on
 
 " allow input toggle to paste mode with F2
 :set pastetoggle=<F2>
 
+
+
+
+" FUTURE: "A small tip: If you have tabstop set, you can set softtabstop and shiftwidth to 0 and they will automatically act as if they are set to the same value as tabstop." - https://www.reddit.com/r/vim/comments/4ozqm9/why_is_vim_doing_4_spaces_for_tabs_even_though_i/d4hdoi2
+" Trent: this didn't actually work, i think some .py file overrides these...
+
 " customtabsize's state informs the function what state you are currently in
 " if the default settings change, then this variable would need to be changed too
 " try this... :let g:customtabsize = 1
-:let g:customtabsize=0
 " allow toggle between 2/4 spaces.
 function TabToggle()
+  " 1/0 evaluate true/false respectively
   if g:customtabsize
-    :set shiftwidth=2
     :set tabstop=2
     :set softtabstop=2
+    :set shiftwidth=2
     :let g:customtabsize=0
   else
-    :set shiftwidth=4
     :set tabstop=4
     :set softtabstop=4
+    :set shiftwidth=4
     :let g:customtabsize=1
   endif
 endfunction
 " TabToggle dumps you at the top of the document so you need to mark your
 " place... set scrolloff=5 or higher to have a better time finding the cursor
-:nmap <F3> mx:execute TabToggle()<cr>'xzz
+":nmap <F3> mx:execute TabToggle()<cr>'xzz
+:nmap <F3> :call TabToggle()<CR>
+
+" for some reason py files still open in 4-spaces mode... toggle <F3> twice to
+" get into 2-spaces mode... ugly hack until i can update whatever magic
+:let g:customtabsize=1
+:call TabToggle()
+
+":autocmd FileType py setlocal shiftwidth=4 tabstop=4 softtabstop=4
+"
 
 " Maintain undo history between sessions
 :set undofile 
