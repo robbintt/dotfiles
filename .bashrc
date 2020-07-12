@@ -19,6 +19,11 @@ set -o vi
 ### End: Global Defaults ###
 
 
+if [ -f ~/.git-completion.bash ]; then
+  . ~/.git-completion.bash
+fi
+
+
 ### Begin: Platform Specific ###
 
 # begin: set the platform
@@ -35,16 +40,16 @@ fi
 # macos specific code
 if [[ $platform == 'macos' ]]; then
 
-    export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH
+    export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH:~/bin/
 
     # add homebrew telnet for now
     #export PATH="/usr/local/opt/telnet/bin:$PATH"
 
-    # macos homebrew bash-completions2
-    if [ -f $(brew --prefix)/share/bash-completion/bash_completion ]; then
-        . $(brew --prefix)/share/bash-completion/bash_completion
-    fi
-    
+    # macos homebrew bash-completion@2
+    #if [ -f $(brew --prefix)/share/bash-completion/bash_completion ]; then
+    #    . $(brew --prefix)/share/bash-completion/bash_completion
+    #fi
+
 # linux specific code
 elif [[ $platform == 'linux' ]]; then
     # set variable identifying the chroot you work in (used in the prompt below)
@@ -60,12 +65,6 @@ fi
 if [ -d "$HOME/bin" ]; then
     export PATH="$HOME/bin:$PATH"
 fi
-
-# set the PATH to include cargo for rust if it exists
-if [ -d "$HOME/.cargo/bin" ]; then
-    export PATH="$HOME/.cargo/bin:$PATH"
-fi
-
 
 ### Begin: NEEDS REVIEW ###
 
@@ -154,10 +153,6 @@ fi
 
 ### Begin: Other Env Stuff ###
 
-# not always necessary but consistently placed
-export NVM_DIR="/home/robbintt/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -166,13 +161,19 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
+# rbenv and pyenv
+eval "$(rbenv init -)"
+eval "$(pyenv init -)"
+
 ### End: Other Env Stuff ###
+eval "$(direnv hook bash)"
 
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-## pyenv configs
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
+# set the PATH to include cargo for rust if it exists
+if [ -d "$HOME/.cargo/bin" ]; then
+    export PATH="$HOME/.cargo/bin:$PATH"
 fi

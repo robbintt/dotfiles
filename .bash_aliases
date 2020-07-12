@@ -37,6 +37,13 @@ fi
 
 ### Not Platform Specific Commands
 
+function git-cb {
+ BRANCH=$(git branch | grep "\*" | sed "s/\* //g")
+ if [ ! -z ${BRANCH} ]; then
+   echo ${BRANCH}
+ fi
+}
+
 # get the weather
 # help docs: `curl http://wttr.in/:help` 
 function weather () {
@@ -61,18 +68,18 @@ alias dec2hex='python ~/.dotfiles/functions/dec2hex.py \$0'
 # special script to move matching cr2 files back into the current folder
 alias mvcr2='python ~/.dotfiles/functions/mvcr2.py \$0'
 
-#Tree aliases - from Greg Arenius 20170603
 alias t="tree -L 1 -C"
 alias ta="tree -L 1 -C -a"
 alias t2="tree -L 2 -C"
 alias tt="tree -L 2 -C"
 
-
-# After 100 lookups, this is a lifesaver TAR 050115
 alias lipsum='echo Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
 
 # This output belongs at the top of python 2 files.
 alias pyutf8='echo \# -*- coding: utf-8\n -*-'
+
+# delete pyc files
+alias pycdel='find . -name "*.pyc" -delete'
 
 # for invoicing:
 alias uuid="python -c 'import uuid; print(uuid.uuid4())'"
