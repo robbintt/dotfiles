@@ -16,3 +16,5 @@
   psuh = push
 [push]
   default = simple
+[pull]
+	rebase = false
