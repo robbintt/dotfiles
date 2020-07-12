@@ -14,7 +14,18 @@
   ll = pull
   sh = push
   psuh = push
+  br = branch
+  # from: http://blog.kfish.org/2010/04/git-lola.html
+  # show struture of git tree
+  lol = log --graph --decorate --pretty=oneline --abbrev-commit
+  # lol alias for all branches
+  lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+  # word diff
+  dw = diff --word-diff=color --patience
+  wd = dw
 [push]
   default = simple
 [pull]
 	rebase = false
+[diff]
+	algorithm = histogram
