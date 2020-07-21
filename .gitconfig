@@ -6,7 +6,10 @@
 [merge]
   tool = vimdiff
 [alias]
-  get = !sh -c 'git fetch && git checkout -b $1 --track origin/$1' # git get -- <branchname>, only use with 'origin' remote
+  br = branch
+  example = !sh -c 'echo ${2:-$1}'
+  # git get -- <branchname>, or git get -- <remote> <branchname>
+  get = !sh -c 'git fetch && git checkout -b ${2:-$1} --track `[ -z $2 ] && echo origin || echo $1`/${2:-$1}'
   stauts = status
   st = status
   s = status
