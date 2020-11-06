@@ -147,6 +147,10 @@ unmapcaps(){
   echo unmapcaps: caps-lock set to caps-lock via xmodmap
 }
 
+label(){
+  PS1="$@$PS1"
+}
+
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
