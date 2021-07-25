@@ -33,3 +33,5 @@
 	rebase = false
 [diff]
 	algorithm = histogram
+[init]
+	defaultBranch = main
