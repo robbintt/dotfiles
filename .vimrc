@@ -157,6 +157,7 @@ endfunction
 " Allow .MD files to automagically use markdown syntax
 :au BufNewFile,BufReadPost *.MD set filetype=markdown
 :au BufRead,BufNewFile *.md set filetype=markdown
+:au BufRead,BufNewFile *.lic set filetype=ruby
 
 " Turn arrow keys off:
 " To cycle history in `ed` mode, use C-n and C-p (although up and down might work fine)
