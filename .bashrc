@@ -56,6 +56,10 @@ elif [[ $platform == 'linux' ]]; then
     if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
         debian_chroot=$(cat /etc/debian_chroot)
     fi
+    export PYENV_ROOT="$HOME/.pyenv/"
+    if [ -d $PYENV_ROOT ]; then
+        export PATH="${PYENV_ROOT}bin:$PATH"
+    fi
 fi
 
 ### End: Platform Specific ###
