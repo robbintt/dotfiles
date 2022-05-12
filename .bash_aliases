@@ -23,6 +23,7 @@ if [[ $platform == 'linux' ]]; then
 # macos version requires homebrew gnutools `grm` version 
 elif [[ $platform == 'macos' ]]; then
     alias rm="grm -i"
+    alias date="gdate"
     # macos version with homebrew gnutools and findtools g- prefix
     alias diskspace="du -sch .[!.]* * |gsort -h"
     alias diskspace2="du -Sh | gsort -n -r | less"
