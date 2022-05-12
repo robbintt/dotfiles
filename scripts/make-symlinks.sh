@@ -18,7 +18,7 @@ mkdir ~/.old_dotfiles/.ssh
 mkdir ~/.old_dotfiles/.irssi
 mkdir -p ~/.old_dotfiles/.config/i3
 mkdir -p ~/.old_dotfiles/.config/xfce4/terminal
-# used for UltiSnips and vim-plug
+# used for vim plugins etc.
 mkdir -p ~/.vim
 # necessary for vim undo, must be the same as the .vimrc `undodir` setting
 mkdir -p ~/.vim/undodir
