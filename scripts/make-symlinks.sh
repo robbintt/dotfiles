@@ -18,8 +18,10 @@ mkdir ~/.old_dotfiles/.ssh
 mkdir ~/.old_dotfiles/.irssi
 mkdir -p ~/.old_dotfiles/.config/i3
 mkdir -p ~/.old_dotfiles/.config/xfce4/terminal
+# used for UltiSnips and vim-plug
+mkdir -p ~/.vim
 # necessary for vim undo, must be the same as the .vimrc `undodir` setting
-mkdir -p ~/.vim 
+mkdir -p ~/.vim/undodir
 
 mv ~/.bashrc ~/.old_dotfiles/
 mv ~/.zshrc ~/.old_dotfiles/
@@ -46,6 +48,7 @@ ln -s ~/.dotfiles/.vimrc ~/.vimrc
 ln -s ~/.dotfiles/.ssh/config ~/.ssh/config
 ln -s ~/.dotfiles/.tmux.conf ~/.tmux.conf
 ln -s ~/.dotfiles/.irssi/ ~/.irssi
+ln -s ~/dotfiles/UltiSnips/ ~/.vim/UltiSnips
 
 mkdir -p ~/.config/xfce4/terminal
 ln -s ~/.dotfiles/.config/xfce4/terminal/terminalrc ~/.config/xfce4/terminal/terminalrc

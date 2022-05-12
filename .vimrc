@@ -14,6 +14,71 @@
 " this can probably be left in linux
 :set backspace=indent,eol,start
 
+" START vim-plug convenience block
+" from: https://github.com/junegunn/vim-plug/wiki/tips#automatic-installation
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+" Install vim-plug if not found
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+endif
+" Run PlugInstall if there are missing plugins
+autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+  \| PlugInstall --sync | source $MYVIMRC
+\| endif
+
+" For Mac/Linux users - i dont use another plugin mgr so i don't need this
+" call plug#begin('~/.vim/bundle')
+"
+call plug#begin('~/.vim/plugged')
+" note both require vim 8.0.1453 + which is picked up in ubuntu 18
+Plug 'lervag/vimtex'    " fast math LaTeX guide
+Plug 'sirver/ultisnips' " fast math LaTeX guide
+" Plug 'junegunn/seoul256.vim'
+" Plug 'junegunn/goyo.vim'
+" Plug 'junegunn/limelight.vim'
+call plug#end()
+
+" the following are now handled by vim-plug, so I have commented them...
+" 2022.5.11
+" indent to previous line automatically
+" :filetype plugin indent on
+" syntax by default
+" :syntax enable
+
+
+" END vim-plug convenience block
+
+
+" START configure vim-tex per: https://castel.dev/post/lecture-notes-1/
+" a.k.a. How I'm able to take notes in mathematics lectures using LaTeX and Vim
+" section is for vim-tex
+let g:tex_flavor='latex'
+let g:vimtex_view_method='zathura'
+let g:vimtex_quickfix_mode=0
+set conceallevel=1
+let g:tex_conceal='abdmg'
+" section is for sirvir/utilisnips
+let g:UltiSnipsExpandTrigger = '<tab>'
+let g:UltiSnipsJumpForwardTrigger = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+"set runtimepath+=~/.dotfiles/utilisnips
+"let g:UltiSnipsSnippetDirectories=[$HOME.'/.dotfiles/UltiSnips']
+"let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
+"let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
+let g:UltiSnipsSnippetDirectories=["UltiSnips"]
+
+
+
+
+
+" END configure vim-tex per: https://castel.dev/post/lecture-notes-1/
+
+
 
 " FUTURE - see what you want from these places:
 " https://github.com/amix/vimrc
@@ -73,8 +138,6 @@ augroup END
 :set showcmd
 " Turn on line numbers:
 :set number
-" syntax by default
-:syntax enable
 
 " Quickly quit without saving with QQ
 :nmap QQ :q!<cr>
@@ -93,9 +156,6 @@ augroup END
 :set expandtab
 "maintain tabbing increments when backspacing tabs (speed things up)
 :set smarttab
-
-" indent to previous line automatically
-:filetype plugin indent on
 
 " allow input toggle to paste mode with F2
 :set pastetoggle=<F2>
@@ -138,10 +198,10 @@ endfunction
 "
 
 " Maintain undo history between sessions
-:set undofile 
+:set undofile
 " this directory must exist or you won't get undos.  Consider generating this
 " in your dotfiles
-:set undodir=~/.vim
+:set undodir=~/.vim/undodir
 :set undolevels=1000 " This many undos are saved.
 :set undoreload=10000 " This saves 10000 lines of undos, which is the default
 
