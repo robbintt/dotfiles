@@ -7,6 +7,8 @@
 "
 " You MUST add a $HOME/.vim/ directory or you will not get undos.
 "
+" Get your vim install info with `vim --version`
+"
 " 256 ctermbg vim colors: https://jonasjacek.github.io/colors/
 " Author - Trent Robbins
 
@@ -57,8 +59,12 @@ call plug#end()
 " START configure vim-tex per: https://castel.dev/post/lecture-notes-1/
 " a.k.a. How I'm able to take notes in mathematics lectures using LaTeX and Vim
 " section is for vim-tex
+" note you will need latexmk by default which is in homebrew basictex (not
+" sure for linux)
 let g:tex_flavor='latex'
-let g:vimtex_view_method='zathura'
+" need zathura
+" let g:vimtex_view_method='zathura'
+let g:vimtex_view_method='skim'
 let g:vimtex_quickfix_mode=0
 set conceallevel=1
 let g:tex_conceal='abdmg'
@@ -66,10 +72,6 @@ let g:tex_conceal='abdmg'
 let g:UltiSnipsExpandTrigger = '<tab>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
-"set runtimepath+=~/.dotfiles/utilisnips
-"let g:UltiSnipsSnippetDirectories=[$HOME.'/.dotfiles/UltiSnips']
-"let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
-"let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
 let g:UltiSnipsSnippetDirectories=["UltiSnips"]
 
 
