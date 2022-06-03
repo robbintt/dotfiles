@@ -1,13 +1,14 @@
 
 ### Begin: Global Defaults ###
 
+#export PS1="🌊 "
 export PS1="🔥 "  # aka <U+1F525>
 #export PS1="$ "
 
 
 # turn off pip unless you are in a virtualenv
 # impacts ansible pip role if you aren't using sudo
-export PIP_REQUIRE_VIRTUALENV=true
+#export PIP_REQUIRE_VIRTUALENV=true
 
 # use vim in all the things
 export VISUAL=vim
@@ -42,6 +43,15 @@ if [[ $platform == 'macos' ]]; then
 
     export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH:~/bin/
 
+    # macos not cool friends
+    export BASH_SILENCE_DEPRECATION_WARNING=1
+
+    #export JAVA_HOME="$(dirname $(dirname $(realpath $(which javac))))"
+
+    # from: https://stackoverflow.com/a/2403860
+    #export JAVA_HOME=$(/usr/libexec/java_home)
+    #export PATH=${JAVA_HOME}/bin:$PATH
+
     # add homebrew telnet for now
     #export PATH="/usr/local/opt/telnet/bin:$PATH"
 
@@ -55,6 +65,10 @@ elif [[ $platform == 'linux' ]]; then
     # set variable identifying the chroot you work in (used in the prompt below)
     if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
         debian_chroot=$(cat /etc/debian_chroot)
+    fi
+    export PYENV_ROOT="$HOME/.pyenv/"
+    if [ -d $PYENV_ROOT ]; then
+        export PATH="${PYENV_ROOT}bin:$PATH"
     fi
 fi
 
@@ -161,9 +175,13 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-# rbenv and pyenv
-eval "$(rbenv init -)"
+# python pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+
+# ruby rbenv
+eval "$(rbenv init -)"
 
 ### End: Other Env Stuff ###
 eval "$(direnv hook bash)"

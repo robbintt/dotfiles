@@ -13,3 +13,6 @@
 
 # macos
 .DS_Store
+
+# u20 fonts file...
+fonts/.uuid

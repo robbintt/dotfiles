@@ -18,8 +18,10 @@ mkdir ~/.old_dotfiles/.ssh
 mkdir ~/.old_dotfiles/.irssi
 mkdir -p ~/.old_dotfiles/.config/i3
 mkdir -p ~/.old_dotfiles/.config/xfce4/terminal
+# used for vim plugins etc.
+mkdir -p ~/.vim
 # necessary for vim undo, must be the same as the .vimrc `undodir` setting
-mkdir -p ~/.vim 
+mkdir -p ~/.vim/undodir
 
 mv ~/.bashrc ~/.old_dotfiles/
 mv ~/.zshrc ~/.old_dotfiles/
@@ -33,6 +35,7 @@ mv ~/.ssh/config ~/.old_dotfiles/.ssh/
 mv ~/.irssi/ ~/.old_dotfiles/
 mv ~/.tmux.conf ~/.old_dotfiles/
 mv ~/.config/xfce4/terminal/terminalrc ~/.old_dotfiles/.config/xfce4/terminal/
+mv ~/.config/redshift.conf ~/.old_dotfiles/.config/
 mv ~/.config/i3/ ~/.old_dotfiles/.config/i3/
 
 ln -s ~/.dotfiles/.bashrc ~/.bashrc
@@ -47,8 +50,9 @@ ln -s ~/.dotfiles/.tmux.conf ~/.tmux.conf
 ln -s ~/.dotfiles/.irssi/ ~/.irssi
 
 mkdir -p ~/.config/xfce4/terminal
-ln -s ~/.dotfiles/.config/xfce4/terminal/terminalrc ~/.config/xfce4/terminal/terminalrc 
+ln -s ~/.dotfiles/.config/xfce4/terminal/terminalrc ~/.config/xfce4/terminal/terminalrc
 mkdir -p ~/.config/i3
 ln -s ~/.dotfiles/.config/i3/* ~/.config/i3/
 
+ln -s ~/.dotfiles/redshift.conf ~/.config/redshift.conf
 

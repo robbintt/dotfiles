@@ -138,10 +138,10 @@ endfunction
 "
 
 " Maintain undo history between sessions
-:set undofile 
+:set undofile
 " this directory must exist or you won't get undos.  Consider generating this
 " in your dotfiles
-:set undodir=~/.vim
+:set undodir=~/.vim/undodir
 :set undolevels=1000 " This many undos are saved.
 :set undoreload=10000 " This saves 10000 lines of undos, which is the default
 
@@ -157,6 +157,7 @@ endfunction
 " Allow .MD files to automagically use markdown syntax
 :au BufNewFile,BufReadPost *.MD set filetype=markdown
 :au BufRead,BufNewFile *.md set filetype=markdown
+:au BufRead,BufNewFile *.lic set filetype=ruby
 
 " Turn arrow keys off:
 " To cycle history in `ed` mode, use C-n and C-p (although up and down might work fine)
