@@ -138,10 +138,10 @@ endfunction
 "
 
 " Maintain undo history between sessions
-:set undofile 
+:set undofile
 " this directory must exist or you won't get undos.  Consider generating this
 " in your dotfiles
-:set undodir=~/.vim
+:set undodir=~/.vim/undodir
 :set undolevels=1000 " This many undos are saved.
 :set undoreload=10000 " This saves 10000 lines of undos, which is the default
 

@@ -1,6 +1,7 @@
 
 ### Begin: Global Defaults ###
 
+#export PS1="🌊 "
 export PS1="🔥 "  # aka <U+1F525>
 #export PS1="$ "
 
@@ -41,6 +42,9 @@ fi
 if [[ $platform == 'macos' ]]; then
 
     export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH:~/bin/
+
+    # macos not cool friends
+    export BASH_SILENCE_DEPRECATION_WARNING=1
 
     #export JAVA_HOME="$(dirname $(dirname $(realpath $(which javac))))"
 
