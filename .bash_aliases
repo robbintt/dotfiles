@@ -20,7 +20,7 @@ if [[ $platform == 'linux' ]]; then
     alias handbrake="ghb"
     alias restart_plasma="kwin_x11 --replace && plasmashell --replace"
     alias restart_plasma2="kquitapp5 plasmashell && plasmashell"
-    alias fnmode="echo 0 | sudo tee /sys/module/hid_apple/parameters/fnmode" # requires sudo
+    alias fnmode="echo 2 | sudo tee /sys/module/hid_apple/parameters/fnmode" # requires sudo
     alias mediamode="echo 1 | sudo tee /sys/module/hid_apple/parameters/fnmode" # requires sudo
 
 # macos specific code
