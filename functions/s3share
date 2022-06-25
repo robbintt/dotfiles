@@ -1,0 +1,45 @@
+#!/bin/bash
+
+if [ $# -eq 0 ]; then
+  echo "No arguments, exiting."
+  exit 0
+fi
+
+# Upload all listed files and directories to the share bucket
+SHARE_BUCKET_NAME="SHAREBUCKET"
+SHARE_BUCKET_PATH="path/to/sharedir" # no leading or trailing slash
+
+# assume prebuilt by hand
+set -e
+source ~/virtualenvs/awscli/bin/activate
+
+
+# double-quote filenames that have spaces
+# - example: s3share nospacefile.png "my file with spaces.txt" nospacefile.txt
+# TODO probably need to look up edge cases for passing files and directories as bash arguments
+
+URLS=()
+for FP in "$@"
+do
+  if [[ -d $FP ]]; then
+    # recursive only works on directories, not files/objects
+    #aws s3 cp "$FP" "s3://$SHARE_BUCKET_NAME/$SHARE_BUCKET_PATH/$FP" --recursive
+    echo "Directories are not enabled due to safety and put-object-tagging must be recursive, which is fixable..."
+  else
+    aws s3 cp "$FP" "s3://$SHARE_BUCKET_NAME/$SHARE_BUCKET_PATH/$FP"
+    aws s3api put-object-tagging \
+      --bucket $SHARE_BUCKET_NAME \
+      --key "$SHARE_BUCKET_PATH/$FP" \
+      --tagging '{"TagSet": [{ "Key": "public", "Value": "yes" }]}'
+    URLS+=("https://$SHARE_BUCKET_NAME.s3.amazonaws.com/$SHARE_BUCKET_PATH/$FP")
+  fi
+done
+
+echo 'All uploads complete!'
+echo 'Share URLs:'
+for URL in "${URLS[@]}"
+do
+  echo "$URL"
+done
+
+deactivate

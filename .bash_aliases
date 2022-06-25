@@ -42,6 +42,8 @@ fi
 
 ### Not Platform Specific Commands
 
+alias s3share="~/.dotfiles/functions/s3share"
+
 function git-cb {
  BRANCH=$(git branch | grep "\*" | sed "s/\* //g")
  if [ ! -z ${BRANCH} ]; then
