@@ -10,7 +10,7 @@ fi
 if [[ $platform == 'linux' ]]; then
     alias rm="rm -i"
     # battery info - for linux
-    alias batt='~/.dotfiles/snips/battery_info'
+    #alias batt='~/.dotfiles/snips/battery_info'
     # google chrome
     alias goo="google-chrome"
     # linux diskspace commands
@@ -18,6 +18,7 @@ if [[ $platform == 'linux' ]]; then
     alias diskspace2="du -Sh | sort -n -r | less"
     # handbrake-gtk for ubuntu desktop
     alias handbrake="ghb"
+    alias fd="fdfind"
 
 # macos specific code
 # macos version requires homebrew gnutools `grm` version 
