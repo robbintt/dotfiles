@@ -19,11 +19,16 @@ if [[ $platform == 'linux' ]]; then
     # handbrake-gtk for ubuntu desktop
     alias handbrake="ghb"
     alias fd="fdfind"
+    alias restart_plasma="kwin_x11 --replace && plasmashell --replace"
+    alias restart_plasma2="kquitapp5 plasmashell && plasmashell"
+    alias fnmode="echo 2 | sudo tee /sys/module/hid_apple/parameters/fnmode" # requires sudo
+    alias mediamode="echo 1 | sudo tee /sys/module/hid_apple/parameters/fnmode" # requires sudo
 
 # macos specific code
 # macos version requires homebrew gnutools `grm` version 
 elif [[ $platform == 'macos' ]]; then
     alias rm="grm -i"
+    alias date="gdate"
     # macos version with homebrew gnutools and findtools g- prefix
     alias diskspace="du -sch .[!.]* * |gsort -h"
     alias diskspace2="du -Sh | gsort -n -r | less"
@@ -37,6 +42,8 @@ fi
 
 
 ### Not Platform Specific Commands
+
+alias s3share="~/.dotfiles/functions/s3share"
 
 function git-cb {
  BRANCH=$(git branch | grep "\*" | sed "s/\* //g")

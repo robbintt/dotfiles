@@ -1,6 +1,7 @@
 
 ### Begin: Global Defaults ###
 
+#export PS1="🌊 "
 export PS1="🔥 "  # aka <U+1F525>
 #export PS1="$ "
 
@@ -42,6 +43,9 @@ if [[ $platform == 'macos' ]]; then
 
     export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH:~/bin/
 
+    # macos not cool friends
+    export BASH_SILENCE_DEPRECATION_WARNING=1
+
     #export JAVA_HOME="$(dirname $(dirname $(realpath $(which javac))))"
 
     # from: https://stackoverflow.com/a/2403860
@@ -65,6 +69,10 @@ elif [[ $platform == 'linux' ]]; then
     export PYENV_ROOT="$HOME/.pyenv/"
     if [ -d $PYENV_ROOT ]; then
         export PATH="${PYENV_ROOT}bin:$PATH"
+    fi
+    export PIPX_ROOT="$HOME/.local/"
+    if [ -d $PIPX_ROOT ]; then
+        export PATH="${PIPX_ROOT}bin:$PATH"
     fi
 fi
 
@@ -191,3 +199,6 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 if [ -d "$HOME/.cargo/bin" ]; then
     export PATH="$HOME/.cargo/bin:$PATH"
 fi
+
+# Created by `pipx` on 2022-01-15 21:15:56
+export PATH="$PATH:/home/robbintt/.local/bin"
