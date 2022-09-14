@@ -70,6 +70,10 @@ elif [[ $platform == 'linux' ]]; then
     if [ -d $PYENV_ROOT ]; then
         export PATH="${PYENV_ROOT}bin:$PATH"
     fi
+    export PIPX_ROOT="$HOME/.local/"
+    if [ -d $PIPX_ROOT ]; then
+        export PATH="${PIPX_ROOT}bin:$PATH"
+    fi
 fi
 
 ### End: Platform Specific ###
@@ -195,3 +199,6 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 if [ -d "$HOME/.cargo/bin" ]; then
     export PATH="$HOME/.cargo/bin:$PATH"
 fi
+
+# Created by `pipx` on 2022-01-15 21:15:56
+export PATH="$PATH:/home/robbintt/.local/bin"

@@ -18,6 +18,10 @@ if [[ $platform == 'linux' ]]; then
     alias diskspace2="du -Sh | sort -n -r | less"
     # handbrake-gtk for ubuntu desktop
     alias handbrake="ghb"
+    alias restart_plasma="kwin_x11 --replace && plasmashell --replace"
+    alias restart_plasma2="kquitapp5 plasmashell && plasmashell"
+    alias fnmode="echo 2 | sudo tee /sys/module/hid_apple/parameters/fnmode" # requires sudo
+    alias mediamode="echo 1 | sudo tee /sys/module/hid_apple/parameters/fnmode" # requires sudo
 
 # macos specific code
 # macos version requires homebrew gnutools `grm` version 
@@ -37,6 +41,8 @@ fi
 
 
 ### Not Platform Specific Commands
+
+alias s3share="~/.dotfiles/functions/s3share"
 
 function git-cb {
  BRANCH=$(git branch | grep "\*" | sed "s/\* //g")
