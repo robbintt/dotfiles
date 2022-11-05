@@ -1,0 +1,30 @@
+{
+    "workbench.colorTheme": "Default High Contrast",
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "files.exclude": {
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
+    },
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter.notebook.ipynb"
+    },
+    "workbench.editor.enablePreview": false,
+    "editor.fontFamily": "Roboto Mono",
+    "editor.fontSize": 16,
+    "editor.codeLensFontFamily": "Droid Sans Mono",
+    "editor.inlayHints.fontFamily": "Droid Sans Mono",
+    "scm.inputFontFamily": "Droid Sans Mono",
+    "workbench.editor.highlightModifiedTabs": true,
+    "workbench.editor.wrapTabs": true,
+    "workbench.editor.tabCloseButton": "off",
+    "workbench.editor.titleScrollbarSizing": "large",
+    "editor.wordWrap": "bounded",
+    "editor.wordWrapColumn": 140,
+    "editor.guides.indentation": false,
+    "editor.wrappingIndent": "none",
+    "vim.textwidth": 100,
+    "editor.inlayHints.enabled": "off"
+}
