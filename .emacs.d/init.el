@@ -8,7 +8,7 @@
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 (add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/"))
 ;;(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/"))
-;;(add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
+(add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
 ;;(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 (package-initialize)
 
@@ -25,14 +25,14 @@
 (use-package evil 
   :ensure t)
 ;; enable evil-mode
-(evil-mode 1)
-(setq-default evil-search-module 'evil-search)
+;;(evil-mode 1)
+;;(setq-default evil-search-module 'evil-search)
 
 ;; helm
-;; (use-package helm
-;;  :ensure t)
+(use-package helm
+  :ensure t)
 ;; enable helm-mode
-;; (helm-mode 1)
+ (helm-mode 1)
 
 ;; undo-tree 
 (use-package undo-tree 
