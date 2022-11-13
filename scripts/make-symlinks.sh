@@ -38,6 +38,7 @@ mv ~/.config/xfce4/terminal/terminalrc ~/.old_dotfiles/.config/xfce4/terminal/
 mv ~/.config/redshift.conf ~/.old_dotfiles/.config/
 mv ~/.config/i3/ ~/.old_dotfiles/.config/i3/
 mv ~/.nethackrc ~/.old_dotfiles/.nethackrc
+mv ~/.emacs.d ~/.old_dotfiles/.emacs.d
 
 ln -s ~/.dotfiles/.bashrc ~/.bashrc
 ln -s ~/.dotfiles/.zshrc ~/.zshrc
@@ -50,6 +51,7 @@ ln -s ~/.dotfiles/.nethackrc ~/.nethackrc
 ln -s ~/.dotfiles/.ssh/config ~/.ssh/config
 ln -s ~/.dotfiles/.tmux.conf ~/.tmux.conf
 ln -s ~/.dotfiles/.irssi/ ~/.irssi
+ln -s ~/.dotfiles/.emacs.d/ ~/.emacs.d
 
 mkdir -p ~/.config/xfce4/terminal
 ln -s ~/.dotfiles/.config/xfce4/terminal/terminalrc ~/.config/xfce4/terminal/terminalrc
