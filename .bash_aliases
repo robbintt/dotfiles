@@ -22,6 +22,7 @@ if [[ $platform == 'linux' ]]; then
     alias restart_plasma2="kquitapp5 plasmashell && plasmashell"
     alias fnmode="echo 2 | sudo tee /sys/module/hid_apple/parameters/fnmode" # requires sudo
     alias mediamode="echo 1 | sudo tee /sys/module/hid_apple/parameters/fnmode" # requires sudo
+    alias vmwarereset="setxkbmap" # for vmare player exit bug that messes with ctrl key map
 
 # macos specific code
 # macos version requires homebrew gnutools `grm` version 
