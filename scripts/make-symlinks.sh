@@ -37,6 +37,7 @@ mv ~/.tmux.conf ~/.old_dotfiles/
 mv ~/.config/xfce4/terminal/terminalrc ~/.old_dotfiles/.config/xfce4/terminal/
 mv ~/.config/redshift.conf ~/.old_dotfiles/.config/
 mv ~/.config/i3/ ~/.old_dotfiles/.config/i3/
+mv ~/.nethackrc ~/.old_dotfiles/.nethackrc
 
 ln -s ~/.dotfiles/.bashrc ~/.bashrc
 ln -s ~/.dotfiles/.zshrc ~/.zshrc
@@ -45,6 +46,7 @@ ln -s ~/.dotfiles/.gitconfig ~/.gitconfig
 ln -s ~/.dotfiles/.bash_aliases ~/.bash_aliases
 ln -s ~/.dotfiles/.bash_profile ~/.bash_profile
 ln -s ~/.dotfiles/.vimrc ~/.vimrc
+ln -s ~/.dotfiles/.nethackrc ~/.nethackrc
 ln -s ~/.dotfiles/.ssh/config ~/.ssh/config
 ln -s ~/.dotfiles/.tmux.conf ~/.tmux.conf
 ln -s ~/.dotfiles/.irssi/ ~/.irssi
