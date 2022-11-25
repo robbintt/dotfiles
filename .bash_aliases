@@ -23,6 +23,7 @@ if [[ $platform == 'linux' ]]; then
     alias fnmode="echo 2 | sudo tee /sys/module/hid_apple/parameters/fnmode" # requires sudo
     alias mediamode="echo 1 | sudo tee /sys/module/hid_apple/parameters/fnmode" # requires sudo
     alias vmwarereset="setxkbmap" # for vmare player exit bug that messes with ctrl key map
+    alias fetcher="rsync -avvz --progress $MEDIA_HOST" # use .inputrc c-e expander for remote tab file completion
 
 # macos specific code
 # macos version requires homebrew gnutools `grm` version 

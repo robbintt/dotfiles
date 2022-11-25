@@ -30,6 +30,7 @@ mv ~/.inputrc ~/.old_dotfiles/
 mv ~/.gitconfig ~/.old_dotfiles/
 mv ~/.bash_aliases ~/.old_dotfiles/
 mv ~/.bash_profile ~/.old_dotfiles/
+mv ~/.envvars ~/.old_dotfiles/.envvars
 mv ~/.vimrc ~/.old_dotfiles/
 mv ~/.ssh/config ~/.old_dotfiles/.ssh/
 mv ~/.irssi/ ~/.old_dotfiles/
@@ -41,6 +42,7 @@ mv ~/.nethackrc ~/.old_dotfiles/.nethackrc
 mv ~/.emacs.d ~/.old_dotfiles/.emacs.d
 
 ln -s ~/.dotfiles/.bashrc ~/.bashrc
+ln -s ~/.dotfiles/private/configs/.envvars ~/.envvars
 ln -s ~/.dotfiles/.zshrc ~/.zshrc
 ln -s ~/.dotfiles/.inputrc ~/.inputrc
 ln -s ~/.dotfiles/.gitconfig ~/.gitconfig

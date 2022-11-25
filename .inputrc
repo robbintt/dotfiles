@@ -1,16 +1,23 @@
 
 # use `bind -P` to see readline bindings
+# use `bind -f ~/.inputrc` to reload
 
 $if mode=vi
 set keymap vi-command
 # these are for vi-command mode
 Control-l: clear-screen
-"\e[A": history-substring-search-backward
-"\e[B": history-substring-search-forward
+Control-k: history-substring-search-backward
+Control-j: history-substring-search-forward
+Control-e: shell-expand-line
+"gg": beginning-of-history
+"G": end-of-history
 
 set keymap vi-insert
 # these are for vi-insert mode
 Control-l: clear-screen
+Control-k: history-substring-search-backward
+Control-j: history-substring-search-forward
+Control-e: shell-expand-line
 
 # iterm2 bug test - https://gitlab.com/gnachman/iterm2/issues/6951
 #set show-mode-in-prompt on
