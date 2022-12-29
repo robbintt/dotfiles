@@ -23,7 +23,7 @@ if [[ $platform == 'linux' ]]; then
     alias fnmode="echo 2 | sudo tee /sys/module/hid_apple/parameters/fnmode" # requires sudo
     alias mediamode="echo 1 | sudo tee /sys/module/hid_apple/parameters/fnmode" # requires sudo
     alias vmwarereset="setxkbmap" # for vmare player exit bug that messes with ctrl key map
-    alias fetcher="rsync -avvz --progress $MEDIA_HOST" # use .inputrc c-e expander for remote tab file completion
+    alias fetcher="rsync -avvz --progress --partial $MEDIA_HOST" # use .inputrc c-e expander for remote tab file completion
 
 # macos specific code
 # macos version requires homebrew gnutools `grm` version 
@@ -97,7 +97,7 @@ alias uuid="python -c 'import uuid; print(uuid.uuid4())'"
 alias scm='mit-scheme'
 
 # break out of symlink
-alias breakout='cd $(pwd -P)'
+alias breakout='cd "$(pwd -P)"'
 
 # estimated editor use: 30-50% of commands. save myself probably 100-200 keystrokes a day. TAR 120115
 # we use f because it is on the homerow, `e` and `v` for mnemonic
