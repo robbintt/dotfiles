@@ -17,6 +17,9 @@ export EDITOR="$VISUAL"
 # vi mode in command line
 set -o vi
 
+# private envvars
+source ~/.envvars
+
 ### End: Global Defaults ###
 
 

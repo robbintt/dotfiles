@@ -6,8 +6,8 @@ if [ $# -eq 0 ]; then
 fi
 
 # Upload all listed files and directories to the share bucket
-SHARE_BUCKET_NAME="SHAREBUCKET"
-SHARE_BUCKET_PATH="path/to/sharedir" # no leading or trailing slash
+#SHARE_BUCKET_NAME="MY_SHARE_BUCKET" # stored in private envvars
+SHARE_BUCKET_PATH="tmp" # no leading or trailing slash
 
 # assume prebuilt by hand
 set -e
