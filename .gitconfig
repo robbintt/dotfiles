@@ -25,7 +25,7 @@
   # lol alias for all branches
   lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
   # word diff
-  dw = diff --word-diff=color --patience
+  dw = diff --word-diff=color --patience --no-index
   wd = dw
 [push]
   default = simple
