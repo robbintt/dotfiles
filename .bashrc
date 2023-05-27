@@ -187,6 +187,11 @@ eval "$(pyenv init -)"
 # ruby rbenv
 eval "$(rbenv init -)"
 
+# golang - the little go book
+export GOPATH=$HOME/code/go
+export PATH=$PATH:$HOME/.go/go/bin # version these maybe or does asdf handle this?
+export PATH=$PATH:$GOPATH/bin # version these maybe or does asdf handle this?
+
 ### End: Other Env Stuff ###
 eval "$(direnv hook bash)"
 
