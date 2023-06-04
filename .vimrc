@@ -29,8 +29,8 @@
 ":call matchadd('ExtraWhitespace', '/\s\+$/')
 
 " if over 80 characters, highlight darkred==52.
-:highlight OverLength ctermbg=52
-match OverLength /\%>120v.\+/
+#:highlight OverLength ctermbg=52
+#match OverLength /\%>120v.\+/
 
 " showmatch will show matching highlights
 :set showmatch
