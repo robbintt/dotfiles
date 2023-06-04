@@ -49,23 +49,33 @@ match OverLength /\%>120v.\+/
 
 " *** *** ***
 " END EXPERIMENTAL SECTION
-
-" background is always dark
-:set background=dark
+"
 " set 256 colors so we can use highlights
 :set t_Co=256
-" Need to have t_Co=256 to use these
+
+" Need to have t_Co=256 to use these:
 " Color Chart: http://www.calmar.ws/vim/256-xterm-24bit-rgb-color-chart.html
 " tmux also required an alias in bash on ubuntu desktop, see .tmux.conf
-" Set Cursor row and column colors
-:highlight CursorLine ctermbg=232 cterm=NONE
-:highlight CursorColumn ctermbg=232 cterm=NONE
-" Set Cursor row and column to on.
-augroup CursorLine
-  au!
-  au VimEnter,WinEnter,BufWinEnter * setlocal cursorline cursorcolumn
-  au WinLeave * setlocal nocursorline nocursorcolumn
+
+" Set Cursor row and column colors - classic (not background aware)
+" :highlight CursorLine ctermbg=232 cterm=NONE
+" :highlight CursorColumn ctermbg=232 cterm=NONE
+
+" set cursor highlights  by running event-triggered function on event OptionSet background
+function! SetCursorLineHighlight()
+  let cursorline_bg = &background == "dark" ? 235 : 193
+  execute 'highlight CursorLine ctermbg=' . cursorline_bg . ' cterm=NONE'
+  execute 'highlight CursorColumn ctermbg=' . cursorline_bg . ' cterm=NONE'
+  execute 'setlocal cursorline cursorcolumn'
+endfunction
+augroup CursorLineSettings
+  autocmd!
+  autocmd VimEnter,WinEnter,BufWinEnter * call SetCursorLineHighlight()
+  autocmd OptionSet background call SetCursorLineHighlight()
+  autocmd WinLeave * setlocal nocursorline nocursorcolumn
 augroup END
+
+
 
 " leave a five line buffer at top or bottom of cursor for readability
 :set scrolloff=5
