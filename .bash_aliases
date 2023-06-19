@@ -79,6 +79,7 @@ alias s='echo `whoami;`"@"`hostname;`":"`pwd`'
 alias dec2hex='python ~/.dotfiles/functions/dec2hex.py \$0'
 # special script to move matching cr2 files back into the current folder
 alias mvcr2='python ~/.dotfiles/functions/mvcr2.py \$0'
+alias s3share='~/.dotfiles/functions/s3share'
 
 alias t="tree -L 1 -C"
 alias ta="tree -L 1 -C -a"
