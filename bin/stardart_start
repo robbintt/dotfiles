@@ -1,0 +1,3 @@
+#!/bin/bash
+
+ssh root@archer0 'LOCAL_IFACE="eth1.1" MAC_ADDR="3c:7c:3f:ba:82:83" ./wol_script.sh start'
