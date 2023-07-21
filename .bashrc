@@ -87,6 +87,11 @@ if [ -d "$HOME/bin" ]; then
     export PATH="$HOME/bin:$PATH"
 fi
 
+# set PATH so it includes .dotfiles/bin if it exists
+if [ -d "$HOME/bin" ]; then
+    export PATH="$HOME/.dotfiles/bin:$PATH"
+fi
+
 ### Begin: NEEDS REVIEW ###
 
 # FUTURE:
@@ -189,6 +194,11 @@ eval "$(pyenv init -)"
 
 # ruby rbenv
 eval "$(rbenv init -)"
+
+# golang - the little go book
+export GOPATH=$HOME/code/go
+export PATH=$PATH:$HOME/.go/go/bin # version these maybe or does asdf handle this?
+export PATH=$PATH:$GOPATH/bin # version these maybe or does asdf handle this?
 
 ### End: Other Env Stuff ###
 eval "$(direnv hook bash)"

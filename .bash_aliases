@@ -11,6 +11,9 @@ if [[ $platform == 'linux' ]]; then
     alias rm="rm -i"
     # battery info - for linux
     alias batt='~/.dotfiles/snips/battery_info'
+    # copypasta
+    alias c='xclip -selection clipboard'
+    alias p='xclip -selection clipboard -o'
     # google chrome
     alias goo="google-chrome"
     # linux diskspace commands
@@ -76,6 +79,7 @@ alias s='echo `whoami;`"@"`hostname;`":"`pwd`'
 alias dec2hex='python ~/.dotfiles/functions/dec2hex.py \$0'
 # special script to move matching cr2 files back into the current folder
 alias mvcr2='python ~/.dotfiles/functions/mvcr2.py \$0'
+alias s3share='~/.dotfiles/functions/s3share'
 
 alias t="tree -L 1 -C"
 alias ta="tree -L 1 -C -a"
@@ -102,7 +106,8 @@ alias breakout='cd "$(pwd -P)"'
 # estimated editor use: 30-50% of commands. save myself probably 100-200 keystrokes a day. TAR 120115
 # we use f because it is on the homerow, `e` and `v` for mnemonic
 f () { 
-    command emacsclient -nw "$@" 
+    #command emacsclient -nw "$@" 
+    command vim "$@" 
 }
 v () { 
     command vim "$@" 

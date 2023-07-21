@@ -1,0 +1,4 @@
+#!/bin/bash
+
+source $HOME/virtualenvs/tiktoken/bin/activate
+python $HOME/.dotfiles/functions/tiktoken_counter.py "$@"
