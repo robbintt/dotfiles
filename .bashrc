@@ -88,7 +88,7 @@ if [ -d "$HOME/bin" ]; then
 fi
 
 # set PATH so it includes .dotfiles/bin if it exists
-if [ -d "$HOME/bin" ]; then
+if [ -d "$HOME/.dotfiles/bin" ]; then
     export PATH="$HOME/.dotfiles/bin:$PATH"
 fi
 
