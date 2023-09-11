@@ -7,6 +7,11 @@
 "
 " You MUST add a $HOME/.vim/ directory or you will not get undos.
 "
+"
+" Notes: to split a line, use `f<spacebar>` to advance to the spacebar, use ;,
+" to traverse to next/prev spacebar during f mode, and then type r<return> to replace the
+" spacebar with a newline
+"
 " 256 ctermbg vim colors: https://jonasjacek.github.io/colors/
 " Author - Trent Robbins
 
